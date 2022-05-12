@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -88,18 +88,18 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="check" title="单文件自动打开" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="0L6-44-Pe0">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                            <font key="font" size="12" name="STKaiti"/>
+                                            <font key="font" metaFont="smallSystem"/>
                                         </buttonCell>
                                         <connections>
                                             <action selector="onClickAutoOpen:" target="XfG-lQ-9wD" id="Eab-5M-220"/>
                                         </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y7N-78-OuG">
-                                        <rect key="frame" x="544" y="564" width="130" height="18"/>
+                                        <rect key="frame" x="544" y="565" width="138" height="18"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="check" title="进房事件检测" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="tfI-C1-W7Z">
+                                        <buttonCell key="cell" type="check" title="进房事件检测（xlog）" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="tfI-C1-W7Z">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                            <font key="font" size="12" name="STKaiti"/>
+                                            <font key="font" metaFont="system" size="11"/>
                                             <connections>
                                                 <action selector="onClickRoomCheck:" target="XfG-lQ-9wD" id="0o0-l0-Xhy"/>
                                             </connections>
@@ -107,25 +107,11 @@
                                     </button>
                                 </subviews>
                             </customView>
-                            <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kcB-BT-7cn">
-                                <rect key="frame" x="308" y="561" width="85" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="6kH-3x-CJJ">
-                                    <font key="font" metaFont="system"/>
-                                    <segments>
-                                        <segment label="2.x"/>
-                                        <segment label="3.x" tag="1"/>
-                                    </segments>
-                                </segmentedCell>
-                                <connections>
-                                    <action selector="onScriptSegmentChange:" target="XfG-lQ-9wD" id="NYR-As-S6T"/>
-                                </connections>
-                            </segmentedControl>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PrE-wV-0Ty">
                                 <rect key="frame" x="225" y="514" width="251" height="27"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="您当前正使用Python 2.x" id="caW-yO-aZi">
-                                    <font key="font" size="10" name="STKaiti"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="请确保系统环境有Python 3.x" id="caW-yO-aZi">
+                                    <font key="font" metaFont="smallSystem"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -137,7 +123,6 @@
                         <outlet property="autoOpenBox" destination="lUe-rJ-zlp" id="I8P-FS-prN"/>
                         <outlet property="dropView" destination="R9y-oE-jnU" id="YC0-57-Jfz"/>
                         <outlet property="pyTextField" destination="PrE-wV-0Ty" id="w6d-1X-wnq"/>
-                        <outlet property="versionSegment" destination="kcB-BT-7cn" id="utP-5G-Qhs"/>
                         <segue destination="oco-jZ-rDe" kind="modal" id="4vn-Pw-EWF"/>
                     </connections>
                 </viewController>

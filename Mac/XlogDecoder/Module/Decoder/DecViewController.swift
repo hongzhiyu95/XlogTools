@@ -7,7 +7,7 @@
 //
 
 import Cocoa
-import Python
+
 import MMKV
 
 class DecViewController: NSViewController,DropViewDelegate,DecManagerDelegate {
@@ -36,10 +36,10 @@ class DecViewController: NSViewController,DropViewDelegate,DecManagerDelegate {
         /// 初始化 是否自动检测进房事件
         self.autoCheckBox.state = autoCheckState ?.on:.off
         
-        /// 初始化 脚本版本选中
-        let userIndex:Int = (MMKV.default()?.bool(forKey: K_Script) ?? false) ?1:0
-        self.versionSegment.selectedSegment = userIndex
-        
+//        /// 初始化 脚本版本选中
+//        let userIndex:Int = (MMKV.default()?.bool(forKey: K_Script) ?? false) ?1:0
+//        self.versionSegment.selectedSegment = userIndex
+//        
         /// 拖拽代理
         dropView.delegate = self
         
@@ -47,9 +47,9 @@ class DecViewController: NSViewController,DropViewDelegate,DecManagerDelegate {
         DecManager.manager.delegate = self
         
         /// 获取当前Python版本
-        let pyVersionStr  = String.init(cString: Py_GetVersion())
-        let result = pyVersionStr.components(separatedBy: " ")
-        pyTextField.stringValue = "您当前正使用 Python" + "(" + (result.first ?? "unknown") + ")"
+//        let pyVersionStr  = String.init(cString: Py_GetVersion())
+//        let result = pyVersionStr.components(separatedBy: " ")
+//        pyTextField.stringValue = "您当前正使用 Python" + "(" + (result.first ?? "unknown") + ")"
         
         /// 设置HUD样式
         configHUD()

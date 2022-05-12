@@ -28,14 +28,8 @@ class DecManager: NSObject {
     var delegate: DecManagerDelegate?
     
     /// 脚本
-    var scriptPath: String {
-        get{
-            
-           let is3X = MMKV.default()?.bool(forKey: K_Script) ?? false
-           return is3X ?S_Py3X:S_Py2X
-            
-        }
-   }
+    let scriptPath = S_Py3X
+   
     
     /// 任务线程
     private lazy var taskGroup = DispatchGroup()
@@ -131,7 +125,7 @@ class DecManager: NSObject {
         /// 加密文件先执行解密
         // 01.初始化任务
         let buildTask = Process()
-        buildTask.launchPath = "/usr/bin/python"
+        buildTask.launchPath = "/usr/bin/python3"
         
         // 02.传入参数
         buildTask.arguments = [self.scriptPath, logPath.path]

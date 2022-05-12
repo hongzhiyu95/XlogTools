@@ -20,12 +20,14 @@ class DropView: NSView {
         case xlog
         case log
         case none
-        
+        case clog
         func getImage() -> NSImage? {
             var imageName = "green_down_icon"
             
             switch self {
             case .xlog:
+                imageName = "xlog"
+            case .clog:
                 imageName = "xlog"
             case .log:
                 imageName = "log"
@@ -78,7 +80,7 @@ class DropView: NSView {
     private var selectedFileExtension: FileExtensionTypes = .none
     private var fileExtensionIsAllowed = false
     private var wasDropAbandoned = false
-    private static let defaultDropViewTitle = "请拖拽[*.xlog或*.log](支持多任务)"
+    private static let defaultDropViewTitle = "请拖拽[*.xlog或*.clog](支持多任务)"
     weak var delegate: DropViewDelegate?
 
     
@@ -172,8 +174,8 @@ extension DropView {
         guard var draggedFiles = sender.draggingPasteboard.propertyList(forType: NSPasteboard.PasteboardType("NSFilenamesPboardType")) as? [String] else { return true }
         
         draggedFiles.removeAll { (oneItem) -> Bool in
-            ///移除不是xlog/log格式的文件
-            return !oneItem.hasSuffix(".xlog") && !oneItem.hasSuffix(".log")
+            ///移除不是xlog/log/clog格式的文件
+            return !oneItem.hasSuffix(".xlog") && !oneItem.hasSuffix(".log") && !oneItem.hasSuffix(".clog")
         }
     
         if fileExtensionIsAllowed {
